@@ -82,6 +82,11 @@ body {
   font-style: normal;
 }
 
+.tag:before {
+  content: ", Category: ";
+  font-style: normal;
+}
+
 #loadQuote {
   position: fixed;
   width: 12em;
