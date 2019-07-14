@@ -23,7 +23,6 @@ the actor/actress that played the role in said movie, the movie itself and the y
 - {`citation`} - Movie that the citation is from
 - {`year`} - Year the movie was released
 - {`used`} - Keyword mark to change boolean value of true/false.
-- {`background_color`} - Key to change the background color of the page when button clicked.
 - {`tag`} - Category that identifies which type of film it is.
  */
 
@@ -143,21 +142,6 @@ function getRandomQuote(quoteObj) {
   return changeQuote;
 }
 
-/**
- * Function that calls on `window.setInterval` to change a callback function.
- * @param {Function}  `callback` function that is used to setup the switch statement
- * @param {Function}  `time` in milliseconds for how long it will be delayed
- */
-function changeBackgroundColor () { 
-  var intervalID = setInterval(function switchColors (randColor){
-      randColor = getRandomColor(backgroundColor);
-      console.log(randColor);
-      document.body.style.backgroundColor = randColor;
-      return randColor;
-    }, 8000);
-  return intervalID;
-  }
-  changeBackgroundColor();
  
 /**
  * Function that prints random quotes to the page with their corresponding attributes.
@@ -190,10 +174,32 @@ print(buildToPage);
 }
 printQuote();
 
+/**
+ * Function that calls on `window.setInterval` to change a callback function.
+ * @param {Function}  `callback` function that is used to setup the switch statement
+ * @param {Function}  `time` in milliseconds for how long it will be delayed
+ */
+function changeBackgroundColor () { 
+  
+  var intervalID = setInterval(function switchColors (randColor, cngQuote){
+      cngQuote = printQuote();
+      randColor = getRandomColor(backgroundColor);
+      console.log(randColor);
+      document.body.style.backgroundColor = randColor;
+      return randColor, cngQuote;
+    }, 8000);
+  return intervalID;
+  }
+  changeBackgroundColor();
 
-
-
-
+/**
+ * Function that is a helper to click event for changing background color.
+ */  
+function evntColor(){
+  let clr = getRandomColor(backgroundColor);
+  document.body.style.backgroundColor = clr;
+  return clr;
+}
 /***
   When the "Show another quote" button is clicked, the event listener 
   below will be triggered, and it will call, or "invoke", the `printQuote` 
@@ -201,6 +207,7 @@ printQuote();
   comment.
 ***/
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", evntColor, false);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
