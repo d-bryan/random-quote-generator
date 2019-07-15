@@ -105,7 +105,7 @@ function print(message) {
 
 /**
  * Function to create random number between 0 and 5:
- * @param {Function} arr 
+ * @param {Array} arr 
  * - to use in the `getRandomQuote` function.
  */
  function getRandomInt (arr) {
@@ -115,7 +115,7 @@ function print(message) {
 
 /**
  * Function that generates a random color from the Background colors Array.
- * @param {Function} bgColorArr 
+ * @param {Array} bgColorArr 
  * - Passes backgroundColors array to function
  * - `num` - gets random integer to pass into placeholder of array
  * - `color` - becomes the color to be passed into the random background color.
@@ -172,7 +172,7 @@ function printQuote () {
 print(buildToPage);
 
 }
-printQuote();
+// printQuote();
 
 /**
  * Function that calls on `window.setInterval` to change a callback function.
@@ -184,13 +184,12 @@ function changeBackgroundColor () {
   var intervalID = setInterval(function switchColors (randColor, cngQuote){
       cngQuote = printQuote();
       randColor = getRandomColor(backgroundColor);
-      console.log(randColor);
       document.body.style.backgroundColor = randColor;
       return randColor, cngQuote;
     }, 8000);
   return intervalID;
   }
-  changeBackgroundColor();
+  // changeBackgroundColor();
 
 /**
  * Function that is a helper to click event for changing background color.
@@ -200,14 +199,20 @@ function evntColor(){
   document.body.style.backgroundColor = clr;
   return clr;
 }
-/***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
-***/
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-document.getElementById('loadQuote').addEventListener("click", evntColor, false);
 
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
+/**
+ * Built a Function to handle both events and make my code DRY, Clean and more concise to read.
+ * @param {Function} e_1 - Runs the printQuote function onClick
+ * @param {Function} e_2 - Runs the evntColor Function onClick to change BG Color
+ */
+function getOnClickEvents (e_1, e_2) {
+  var e_1 = document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+  var e_2 = document.getElementById('loadQuote').addEventListener("click", evntColor, false);
+  return e_1, e_2;
+}
+
+// Runs all the functions in sequence
+printQuote();
+changeBackgroundColor();
+getOnClickEvents();
