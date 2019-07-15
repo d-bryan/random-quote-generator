@@ -89,7 +89,7 @@ const quotes = [
   }
 ];
 /**
- * {`Array`} - Containing different colors to be used in changing background color
+ * {`Array`} - Containing different colors to be used in changing background colors
  */
 const backgroundColor = [
   "coral", "black", "burlywood", "#b9072d", "#97cf2e", "#535353"  
