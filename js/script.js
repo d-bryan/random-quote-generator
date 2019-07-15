@@ -186,7 +186,7 @@ function changeBackgroundColor () {
       randColor = getRandomColor(backgroundColor);
       document.body.style.backgroundColor = randColor;
       return randColor, cngQuote;
-    }, 8000);
+    }, 12000);
   return intervalID;
   }
   // changeBackgroundColor();
