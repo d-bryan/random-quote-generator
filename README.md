@@ -34,7 +34,7 @@ The quotes object in my project all contain the following properties:
 - {`actor`} - Star that played the role
 - {`citation`} - Movie that the citation is from
 - {`year`} - Year the movie was released
-- {`used`} - Keyword mark to change boolean value of true/false.
+- {`used`} - Keyword mark to change boolean value of true/false. (will be used in future versions, not currently in use)
 - {`tag`} - Category that identifies which type of film it is.
 
 Quote, Source, Actor, Citation, Year and Tag are all displayed on screen and I manipulated the CSS to be able to distiguish them from the other parts by adding "Star" and "Actor" as it dynamically changes.
@@ -68,7 +68,7 @@ To meet expectations in this category one must achieve the following.
 
 - Comments are included in the code.
 
-I have made sure to be very detailed in my code comments htis way the functions are explained with what they do, the parameters involved. What is contained in the Object and arrays is also thoroughly explained. This way any other individual reading the code will be able to understand it without any issues.
+I have made sure to be very detailed in my code comments this way the functions are explained with what they do, the parameters involved. What is contained in the Object and arrays is also thoroughly explained. This way any other individual reading the code will be able to understand it without any issues.
 
 I also included links ot the wikipedia page as to where i was getting the quotes from and sources of information to build the projects at the top of the javaScript file. Please see it below in case you would like to reference.
 
