@@ -88,6 +88,9 @@ const quotes = [
     tag: "Action"
   }
 ];
+/**
+ * {`Array`} - Containing different colors to be used in changing background color
+ */
 const backgroundColor = [
   "coral", "black", "burlywood", "#b9072d", "#97cf2e", "#535353"  
 ];
