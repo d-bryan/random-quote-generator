@@ -92,7 +92,50 @@ const quotes = [
  * {`Array`} - Containing different colors to be used in changing background colors
  */
 const backgroundColor = [
-  "coral", "black", "burlywood", "#b9072d", "#97cf2e", "#535353"  
+    {
+      color: "coral",
+      used: false
+    },
+    {
+      color: "black",
+      used: false
+    },
+    {
+      color: "burlywood",
+      used: false
+    },
+    {
+      color: "#b9072d",
+      used: false
+    },
+    {
+      color: "#97cf2e",
+      used: false
+    },
+    {
+      color: "#535353",
+      used: false
+    },
+    {
+      color: "#b4b228",
+      used: false
+    },
+    {
+      color: "#b48328",
+      used: false
+    },
+    {
+      color: "#b48328",
+      used: false
+    },
+    {
+      color: "#2893b4",
+      used: false
+    },
+    {
+      color: "#6528b4",
+      used: false
+    }  
 ];
 
 /**
@@ -115,6 +158,18 @@ function print(message) {
     return Math.floor(Math.random() * Math.floor(arr.length));
  }
 
+/**
+ * 
+ * @param {Array} arr - Passes the Quotes array into Function to set all the `used` properties to `false`.
+ * - `callback` function to be used in the `getRandomQuotes` Function to change boolean value
+ */
+function setToFalse (arr){
+  for (let i = 0; i < arr.length; i += 1){
+    let changeValue = arr[i].used;
+    return changeValue;
+  }
+}
+
 
 /**
  * Function that generates a random color from the Background colors Array.
@@ -126,8 +181,20 @@ function print(message) {
 function getRandomColor (bgColorArr) {
   let num = getRandomInt(backgroundColor);
   let color = bgColorArr[num];
+
+  if (color.used === false){
+    color.used === true;
+    color;
+  } else if (color.used === true) {
+    setToFalse(backgroundColor);
+  } else {
+    color;
+  }
+
   return color;
 }
+
+
 
 /**
  * 
@@ -140,8 +207,16 @@ function getRandomColor (bgColorArr) {
 function getRandomQuote(quoteObj) {
   let num = getRandomInt(quotes);
   let changeQuote = quoteObj[num];
-  // console.log(quoteObj[num].quote);
-  // console.log(num);
+
+  if (changeQuote.used === false){
+    changeQuote.used === true;
+    changeQuote;
+  } else if (changeQuote.used === true) {
+    setToFalse(quotes);
+  } else {
+    changeQuote;
+  }
+
   return changeQuote;
 }
 
@@ -186,7 +261,7 @@ function changeBackgroundColor () {
   
   var intervalID = setInterval(function switchColors (randColor, cngQuote){
       cngQuote = printQuote();
-      randColor = getRandomColor(backgroundColor);
+      randColor = getRandomColor(backgroundColor).color;
       document.body.style.backgroundColor = randColor;
       return randColor, cngQuote;
     }, 12000);
@@ -198,7 +273,7 @@ function changeBackgroundColor () {
  * Function that is a helper to click event for changing background color.
  */  
 function evntColor(){
-  let clr = getRandomColor(backgroundColor);
+  let clr = getRandomColor(backgroundColor).color;
   document.body.style.backgroundColor = clr;
   return clr;
 }
