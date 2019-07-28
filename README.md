@@ -1,6 +1,6 @@
 # Techdegree Unit 01 Random Quote Generator Project
 
-Please reach out to me if you feel this will not meet the standard for exceeds expectations and provide me with any feedback so that I will be able to improve upon the project before submitting for grading. Thank you.
+UPDATE - Grade recieved exceeds expetations
 
 # Grade attempting for - Exceeds Expectations - Please see description below:
 
