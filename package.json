@@ -1,0 +1,22 @@
+{
+  "name": "random-quote-generator",
+  "version": "0.1.0",
+  "description": "Simple script that generates random quotes and adds them to HTML page",
+  "main": "script.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d-bryan/random-quote-generator.git"
+  },
+  "author": "Dylan Bryan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/d-bryan/random-quote-generator/issues"
+  },
+  "homepage": "https://github.com/d-bryan/random-quote-generator#readme",
+  "devDependencies": {
+    "eslint": "^6.6.0"
+  }
+}
