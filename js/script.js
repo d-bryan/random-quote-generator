@@ -2,7 +2,7 @@
 Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
-
+'use strict';
 /**
  * Reference that I used to get the quotes from
  * https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movie_Quotes
@@ -184,14 +184,13 @@ function getRandomColor (bgColorArr) {
 
   if (color.used === false){
     color.used === true;
-    color;
+    return color;
   } else if (color.used === true) {
     setToFalse(backgroundColor);
+    return color;
   } else {
     color;
   }
-
-  return color;
 }
 
 
@@ -210,14 +209,13 @@ function getRandomQuote(quoteObj) {
 
   if (changeQuote.used === false){
     changeQuote.used === true;
-    changeQuote;
+    return changeQuote;
   } else if (changeQuote.used === true) {
     setToFalse(quotes);
+    return changeQuote;
   } else {
     changeQuote;
   }
-
-  return changeQuote;
 }
 
  
@@ -257,9 +255,10 @@ print(buildToPage);
  * @param {Function}  `callback` function that is used to setup the switch statement
  * @param {Function}  `time` in milliseconds for how long it will be delayed
  */
-function changeBackgroundColor () { 
+function setTimeoutChange () { 
   
-  var intervalID = setInterval(function switchColors (randColor, cngQuote){
+  var intervalID = setInterval(
+    function switchColors (randColor, cngQuote){
       cngQuote = printQuote();
       randColor = getRandomColor(backgroundColor).color;
       document.body.style.backgroundColor = randColor;
@@ -267,7 +266,6 @@ function changeBackgroundColor () {
     }, 12000);
   return intervalID;
   }
-  // changeBackgroundColor();
 
 /**
  * Function that is a helper to click event for changing background color.
@@ -285,12 +283,12 @@ function evntColor(){
  * @param {Function} e_2 - Runs the evntColor Function onClick to change BG Color
  */
 function getOnClickEvents (e_1, e_2) {
-  var e_1 = document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-  var e_2 = document.getElementById('loadQuote').addEventListener("click", evntColor, false);
+  e_1 = document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+  e_2 = document.getElementById('loadQuote').addEventListener("click", evntColor, false);
+  
   return e_1, e_2;
 }
 
 // Runs all the functions in sequence
-printQuote();
-changeBackgroundColor();
 getOnClickEvents();
+setTimeoutChange();
